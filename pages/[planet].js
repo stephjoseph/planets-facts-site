@@ -1,6 +1,8 @@
 import path from 'path';
 import fs from 'fs/promises';
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
+import styles from '../styles/Planet.module.css';
+import Header from '../components/planet/Header';
 
 export const getStaticPaths = async () => {
   const filePath = path.join(process.cwd(), 'public', 'data.json');
@@ -36,15 +38,55 @@ export const getStaticProps = async (context) => {
 };
 
 const Planet = ({ planet }) => {
+  const [tabSelected, setTabSelected] = useState('Overview');
+  const [color, setColor] = useState('#419EBB');
+
+  const setPlanetColor = ({ name }) => {
+    switch (name) {
+      case 'Mercury':
+        setColor('#419EBB');
+        break;
+      case 'Venus':
+        setColor('#EDA249');
+        break;
+      case 'Earth':
+        setColor('#6f2ed6');
+        break;
+      case 'Mars':
+        setColor('#D14C32');
+        break;
+      case 'Jupiter':
+        setColor('#D83A34');
+        break;
+      case 'Saturn':
+        setColor('#CD5120');
+        break;
+      case 'Uranus':
+        setColor('#1ec2a4');
+        break;
+      case 'Neptune':
+        setColor('#2d68f0');
+        break;
+      default:
+        null;
+    }
+  };
+
   useEffect(() => {
-    console.log(planet);
-  }, []);
+    setTabSelected('Overview');
+    setPlanetColor(planet);
+  }, [planet]);
 
   return (
-    <div>
+    <>
+      <Header
+        color={color}
+        tabSelected={tabSelected}
+        setTabSelected={setTabSelected}
+      />
       {planet.name}
       <div>{planet.overview.content}</div>
-    </div>
+    </>
   );
 };
 
