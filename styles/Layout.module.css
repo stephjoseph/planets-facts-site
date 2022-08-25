@@ -1,0 +1,7 @@
+.layout {
+  display: grid;
+  place-items: center;
+  background: url('/assets/background-stars.svg'),
+    var(--navy) no-repeat top center;
+  background-size: cover;
+}

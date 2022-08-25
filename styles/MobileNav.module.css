@@ -1,0 +1,80 @@
+.nav {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  z-index: 999;
+  width: 100vw;
+  position: relative;
+}
+
+.nav__bar {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 1.5rem;
+  background-color: transparent;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.nav__logo {
+  font-family: 'Antonio';
+  font-weight: 500;
+  font-size: 1.75rem;
+  line-height: 2.25rem;
+  letter-spacing: -1.05px;
+  text-decoration: none;
+  text-transform: uppercase;
+  color: var(--white);
+}
+
+.nav__button {
+  cursor: pointer;
+}
+
+.nav__menu {
+  position: absolute;
+  top: 4.313rem;
+  width: 100%;
+  background: var(--navy);
+  padding: 2.75rem 1.5rem 4.188rem 1.5rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.25rem;
+  transition: opacity 0.3s ease-in;
+}
+
+.inactive {
+  opacity: 0;
+  pointer-events: none;
+}
+
+.nav__link {
+  display: flex;
+  width: 100%;
+  align-items: center;
+  justify-content: space-between;
+  font-family: 'League Spartan';
+  text-decoration: none;
+  color: var(--white);
+  text-transform: uppercase;
+  font-weight: 700;
+  font-size: 0.938rem;
+  line-height: 1.563rem;
+  letter-spacing: 1.36px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  padding-bottom: 1.25rem;
+}
+
+.nav__link > div {
+  display: flex;
+  align-items: center;
+  gap: 1.563rem;
+}
+
+.nav__circle {
+  width: 1.25rem;
+  height: 1.25rem;
+  border-radius: 9999px;
+}
