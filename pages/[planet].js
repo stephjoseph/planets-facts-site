@@ -1,8 +1,8 @@
+import { useEffect, useState } from 'react';
 import path from 'path';
 import fs from 'fs/promises';
-import { useEffect, useState } from 'react';
-import styles from '../styles/Planet.module.css';
 import Header from '../components/planet/Header';
+import Main from '../components/planet/Main';
 
 export const getStaticPaths = async () => {
   const filePath = path.join(process.cwd(), 'public', 'data.json');
@@ -73,8 +73,9 @@ const Planet = ({ planet }) => {
   };
 
   useEffect(() => {
-    setTabSelected('Overview');
     setPlanetColor(planet);
+    setTabSelected('Overview');
+    console.log(planet);
   }, [planet]);
 
   return (
@@ -84,8 +85,7 @@ const Planet = ({ planet }) => {
         tabSelected={tabSelected}
         setTabSelected={setTabSelected}
       />
-      {planet.name}
-      <div>{planet.overview.content}</div>
+      <Main planet={planet} color={color} tabSelected={tabSelected} />
     </>
   );
 };

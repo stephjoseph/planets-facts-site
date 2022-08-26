@@ -21,6 +21,25 @@
       "planet": "/assets/planet-mercury.svg",
       "internal": "/assets/planet-mercury-internal.svg",
       "geology": "/assets/geology-mercury.png"
+    },
+    "dimensions": {
+      "mobile": 111,
+      "tablet": 184,
+      "desktop": 290
+    },
+    "surface": {
+      "mobile": {
+        "width": 62.38,
+        "height": 76.16
+      },
+      "tablet": {
+        "width": 103.42,
+        "height": 126.26
+      },
+      "desktop": {
+        "width": 163,
+        "height": 199
+      }
     }
   },
   {
@@ -47,9 +66,23 @@
       "geology": "/assets/geology-venus.png"
     },
     "dimensions": {
-      "mobile": 111,
-      "tablet": 184,
-      "desktop": 290
+      "mobile": 154,
+      "tablet": 253,
+      "desktop": 400
+    },
+    "surface": {
+      "mobile": {
+        "width": 62.38,
+        "height": 76.16
+      },
+      "tablet": {
+        "width": 103.42,
+        "height": 126.26
+      },
+      "desktop": {
+        "width": 163,
+        "height": 199
+      }
     }
   },
   {
@@ -76,9 +109,23 @@
       "geology": "/assets/geology-earth.png"
     },
     "dimensions": {
-      "mobile": 154,
-      "tablet": 253,
-      "desktop": 400
+      "mobile": 173,
+      "tablet": 285,
+      "desktop": 450
+    },
+    "surface": {
+      "mobile": {
+        "width": 62.38,
+        "height": 76.16
+      },
+      "tablet": {
+        "width": 103.42,
+        "height": 126.26
+      },
+      "desktop": {
+        "width": 163,
+        "height": 199
+      }
     }
   },
   {
@@ -108,6 +155,20 @@
       "mobile": 129,
       "tablet": 213,
       "desktop": 336
+    },
+    "surface": {
+      "mobile": {
+        "width": 62.38,
+        "height": 76.16
+      },
+      "tablet": {
+        "width": 103.42,
+        "height": 126.26
+      },
+      "desktop": {
+        "width": 163,
+        "height": 199
+      }
     }
   },
   {
@@ -137,6 +198,20 @@
       "mobile": 224,
       "tablet": 369,
       "desktop": 582
+    },
+    "surface": {
+      "mobile": {
+        "width": 62.38,
+        "height": 76.16
+      },
+      "tablet": {
+        "width": 103.42,
+        "height": 126.26
+      },
+      "desktop": {
+        "width": 163,
+        "height": 199
+      }
     }
   },
   {
@@ -166,6 +241,20 @@
       "mobile": 256,
       "tablet": 422,
       "desktop": 666.09
+    },
+    "surface": {
+      "mobile": {
+        "width": 62.38,
+        "height": 76.16
+      },
+      "tablet": {
+        "width": 103.42,
+        "height": 126.26
+      },
+      "desktop": {
+        "width": 163,
+        "height": 199
+      }
     }
   },
   {
@@ -195,6 +284,20 @@
       "mobile": 176,
       "tablet": 290,
       "desktop": 458
+    },
+    "surface": {
+      "mobile": {
+        "width": 62.38,
+        "height": 76.16
+      },
+      "tablet": {
+        "width": 103.42,
+        "height": 126.26
+      },
+      "desktop": {
+        "width": 163,
+        "height": 199
+      }
     }
   },
   {
@@ -224,6 +327,20 @@
       "mobile": 173,
       "tablet": 285,
       "desktop": 450
+    },
+    "surface": {
+      "mobile": {
+        "width": 62.38,
+        "height": 76.16
+      },
+      "tablet": {
+        "width": 103.42,
+        "height": 126.26
+      },
+      "desktop": {
+        "width": 163,
+        "height": 199
+      }
     }
   }
 ]
