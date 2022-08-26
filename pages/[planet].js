@@ -75,7 +75,6 @@ const Planet = ({ planet }) => {
   useEffect(() => {
     setPlanetColor(planet);
     setTabSelected('Overview');
-    console.log(planet);
   }, [planet]);
 
   return (
@@ -85,7 +84,12 @@ const Planet = ({ planet }) => {
         tabSelected={tabSelected}
         setTabSelected={setTabSelected}
       />
-      <Main planet={planet} color={color} tabSelected={tabSelected} />
+      <Main
+        planet={planet}
+        color={color}
+        tabSelected={tabSelected}
+        setTabSelected={setTabSelected}
+      />
     </>
   );
 };

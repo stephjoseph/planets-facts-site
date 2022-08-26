@@ -13,6 +13,7 @@
   letter-spacing: 1.93px;
   text-transform: uppercase;
   border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+  max-width: 1920px;
 }
 
 .header > div {
@@ -44,6 +45,17 @@
   gap: 1.75rem;
   color: var(--white);
   padding: 5.938rem 0rem 2.938rem 0rem;
+  max-width: 1920px;
+}
+
+.planet__container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  padding-top: 19rem;
+  position: relative;
 }
 
 .planet {
@@ -52,8 +64,9 @@
   align-items: center;
   width: 87.2%;
   gap: 6.125rem;
-  position: relative;
-  padding-top: 19rem;
+}
+.planet__tabs {
+  display: none;
 }
 
 .planet__img {
@@ -144,4 +157,100 @@
   line-height: 1.625rem;
   letter-spacing: -0.75px;
   color: var(--white);
+}
+
+@media (min-width: 768px) {
+  .header {
+    display: none;
+  }
+  .main {
+    padding-top: 0;
+    padding-bottom: 2.25rem;
+    gap: 1.688rem;
+  }
+
+  .planet {
+    width: 49.2%;
+  }
+
+  .planet__container {
+    flex-direction: row;
+    padding-top: 28.75rem;
+    width: 89.71%;
+    gap: 4.313rem;
+  }
+
+  .planet__summary {
+    align-items: start;
+  }
+
+  .planet__content {
+    align-items: start;
+    text-align: left;
+    gap: 1.5rem;
+  }
+
+  .planet__content h1 {
+    font-size: 3rem;
+    line-height: 3.875rem;
+  }
+
+  .planet__img {
+    transform: translate(0%, -50%);
+    top: 15rem;
+  }
+
+  .planet__tabs {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+    width: 40.78%;
+  }
+
+  .planet__tab {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    padding: 0.5rem 1.25rem;
+    font-family: 'League Spartan';
+    font-weight: 400;
+    font-size: 0.75rem;
+    line-height: 1.563rem;
+    letter-spacing: 1.93px;
+    text-transform: uppercase;
+    color: rgba(255, 255, 255, 0.5);
+    cursor: pointer;
+  }
+
+  .planet__tabTitle {
+    color: var(--white);
+  }
+
+  .planet__geologyImg {
+    top: 18.206rem;
+  }
+
+  .planet__details {
+    flex-direction: row;
+    width: 89.71%;
+    gap: 0.688rem;
+  }
+
+  .planet__detail {
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+    gap: 0.375rem;
+    width: 23.8%;
+    padding: 1rem;
+  }
+
+  .planet__detailValue {
+    font-size: 1.5rem;
+    line-height: 1.938rem;
+    letter-spacing: -0.9px;
+  }
 }

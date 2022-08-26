@@ -1,0 +1,37 @@
+.nav {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 2rem 0 1.688rem 0;
+  width: 100%;
+  gap: 2.438rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.nav__logo {
+  font-family: 'Antonio';
+  font-weight: 500;
+  font-size: 1.75rem;
+  line-height: 2.25rem;
+  letter-spacing: -1.05px;
+  text-transform: uppercase;
+  text-decoration: none;
+  color: var(--white);
+}
+
+.nav__links {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 2.063rem;
+}
+.nav__links a {
+  font-family: 'League Spartan';
+  font-weight: 700;
+  font-size: 0.813rem;
+  line-height: 1.563rem;
+  letter-spacing: 1px;
+  color: rgba(255, 255, 255, 0.75);
+  text-decoration: none;
+  text-transform: uppercase;
+}

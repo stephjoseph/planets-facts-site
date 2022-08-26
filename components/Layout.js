@@ -1,8 +1,21 @@
+import { useState, useEffect } from 'react';
 import Head from 'next/head';
 import styles from '../styles/Layout.module.css';
-import MobilNav from './MobileNav';
+import MobileNav from './MobileNav';
+import Navbar from './Navbar';
 
 const Layout = ({ children }) => {
+  const [width, setWidth] = useState(0);
+
+  const updateSize = () => {
+    setWidth(window.innerWidth);
+  };
+
+  useEffect(() => {
+    setWidth(window.innerWidth);
+    window.onresize = updateSize;
+  }, []);
+
   return (
     <>
       <Head>
@@ -13,7 +26,8 @@ const Layout = ({ children }) => {
         />
       </Head>
       <div className={styles.layout}>
-        <MobilNav />
+        {width < 768 && <MobileNav />}
+        {width >= 768 && <Navbar />}
         {children}
       </div>
     </>
