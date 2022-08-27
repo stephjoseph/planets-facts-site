@@ -1,5 +1,6 @@
 import styles from '../styles/Navbar.module.css';
 import Link from 'next/link';
+import { useState } from 'react';
 
 const planets = [
   {
@@ -37,16 +38,34 @@ const planets = [
 ];
 
 const Navbar = () => {
+  const [hover, setHover] = useState(false);
+
+  const handleMouseEnter = () => {
+    setHover(true);
+  };
+
+  const handleMouseLeave = () => {
+    setHover(false);
+  };
+
   return (
     <nav className={styles.nav}>
       <Link href='/'>
         <a className={styles.nav__logo}>The Planets</a>
       </Link>
       <div className={styles.nav__links}>
-        {planets.map((planet) => {
+        {planets.map((planet, i) => {
           return (
             <Link key={planet.name} href={`/${planet.name.toLowerCase()}`}>
-              <a>{planet.name}</a>
+              <a
+                style={{
+                  borderColor: hover ? planet.color : '',
+                }}
+                onMouseEnter={handleMouseEnter}
+                onMouseLeave={handleMouseLeave}
+              >
+                {planet.name}
+              </a>
             </Link>
           );
         })}

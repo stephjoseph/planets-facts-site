@@ -3,6 +3,7 @@ import path from 'path';
 import fs from 'fs/promises';
 import Header from '../components/planet/Header';
 import Main from '../components/planet/Main';
+import Head from 'next/head';
 
 export const getStaticPaths = async () => {
   const filePath = path.join(process.cwd(), 'public', 'data.json');
@@ -79,6 +80,9 @@ const Planet = ({ planet }) => {
 
   return (
     <>
+      <Head>
+        <title>The Planets | {planet.name}</title>
+      </Head>
       <Header
         color={color}
         tabSelected={tabSelected}

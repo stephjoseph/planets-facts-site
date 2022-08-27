@@ -6,8 +6,28 @@ import Link from 'next/link';
 const Main = ({ planet, color, tabSelected, setTabSelected }) => {
   const [width, setWidth] = useState(0);
 
+  const [hover, setHover] = useState({
+    0: false,
+    1: false,
+    2: false,
+  });
+
   const updateSize = () => {
     setWidth(window.innerWidth);
+  };
+
+  const handleMouseEnter = (i) => {
+    setHover((prevState) => ({
+      ...prevState,
+      [i]: true,
+    }));
+  };
+
+  const handleMouseLeave = (i) => {
+    setHover((prevState) => ({
+      ...prevState,
+      [i]: false,
+    }));
   };
 
   useEffect(() => {
@@ -108,7 +128,11 @@ const Main = ({ planet, color, tabSelected, setTabSelected }) => {
           <div
             style={{
               backgroundColor:
-                tabSelected === 'Overview' ? color : 'transparent',
+                tabSelected === 'Overview'
+                  ? color
+                  : hover[0]
+                  ? 'rgba(216, 216, 216, 0.2)'
+                  : 'transparent',
               borderColor:
                 tabSelected === 'Overview' ? color : 'rgba(255, 255, 255, 0.2)',
             }}
@@ -116,6 +140,8 @@ const Main = ({ planet, color, tabSelected, setTabSelected }) => {
               tabSelected === 'Overview' && styles.selected
             }`}
             onClick={() => setTabSelected('Overview')}
+            onMouseEnter={() => handleMouseEnter(0)}
+            onMouseLeave={() => handleMouseLeave(0)}
           >
             <div>01</div>
             <div className={styles.planet__tabTitle}>Overview</div>
@@ -123,7 +149,11 @@ const Main = ({ planet, color, tabSelected, setTabSelected }) => {
           <div
             style={{
               backgroundColor:
-                tabSelected === 'Structure' ? color : 'transparent',
+                tabSelected === 'Structure'
+                  ? color
+                  : hover[1]
+                  ? 'rgba(216, 216, 216, 0.2)'
+                  : 'transparent',
               borderColor:
                 tabSelected === 'Structure'
                   ? color
@@ -133,6 +163,8 @@ const Main = ({ planet, color, tabSelected, setTabSelected }) => {
               tabSelected === 'Structure' && styles.selected
             }`}
             onClick={() => setTabSelected('Structure')}
+            onMouseEnter={() => handleMouseEnter(1)}
+            onMouseLeave={() => handleMouseLeave(1)}
           >
             <div>02</div>
             <div className={styles.planet__tabTitle}>Internal Structure</div>
@@ -140,7 +172,11 @@ const Main = ({ planet, color, tabSelected, setTabSelected }) => {
           <div
             style={{
               backgroundColor:
-                tabSelected === 'Surface' ? color : 'transparent',
+                tabSelected === 'Surface'
+                  ? color
+                  : hover[2]
+                  ? 'rgba(216, 216, 216, 0.2)'
+                  : 'transparent',
               borderColor:
                 tabSelected === 'Surface' ? color : 'rgba(255, 255, 255, 0.2)',
             }}
@@ -148,6 +184,8 @@ const Main = ({ planet, color, tabSelected, setTabSelected }) => {
               tabSelected === 'Surface' && styles.selected
             }`}
             onClick={() => setTabSelected('Surface')}
+            onMouseEnter={() => handleMouseEnter(2)}
+            onMouseLeave={() => handleMouseLeave(2)}
           >
             <div>03</div>
             <div className={styles.planet__tabTitle}>Surface Geology</div>
