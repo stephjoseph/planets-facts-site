@@ -2,9 +2,11 @@ import { useEffect, useRef, useState } from 'react';
 import Image from 'next/image';
 import styles from '../../styles/Planet.module.css';
 import Link from 'next/link';
-import { gsap } from 'gsap';
+import { gsap } from 'gsap/dist/gsap';
+import { ScrollTrigger } from 'gsap/dist/ScrollTrigger';
 
 const Main = ({ planet, color, tabSelected, setTabSelected }) => {
+  gsap.registerPlugin(ScrollTrigger);
   const [width, setWidth] = useState(0);
 
   const [hover, setHover] = useState({
@@ -19,6 +21,7 @@ const Main = ({ planet, color, tabSelected, setTabSelected }) => {
   const contentRef = useRef(null);
   const tabsRef = useRef([]);
   const detailsRef = useRef([]);
+  const triggerRef = useRef(null);
 
   const updateSize = () => {
     setWidth(window.innerWidth);
@@ -92,6 +95,11 @@ const Main = ({ planet, color, tabSelected, setTabSelected }) => {
         opacity: 0,
       },
       {
+        scrollTrigger: {
+          trigger: triggerRef.current,
+          start: 'top bottom',
+          toggleActions: 'play none none none',
+        },
         y: 0,
         opacity: 1,
         duration: 0.6,
@@ -269,7 +277,7 @@ const Main = ({ planet, color, tabSelected, setTabSelected }) => {
           </div>
         </div>
       </div>
-      <div className={styles.planet__details}>
+      <div ref={triggerRef} className={styles.planet__details}>
         <div
           ref={(element) => {
             detailsRef.current[0] = element;
