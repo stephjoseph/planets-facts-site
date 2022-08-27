@@ -16,7 +16,7 @@
   max-width: 1920px;
 }
 
-.header > div {
+.header > button {
   width: 24.46%;
   padding: 1.25rem 0rem 1.25rem 0rem;
   display: flex;
@@ -28,7 +28,7 @@
   -webkit-box-sizing: border-box;
 }
 
-.header > div.selected {
+.header > button.selected {
   padding: 1.25rem 0rem 1rem 0rem;
 }
 
