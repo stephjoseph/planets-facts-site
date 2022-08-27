@@ -7,6 +7,7 @@
   max-width: 1920px;
   gap: 2.438rem;
   border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+  display: none;
 }
 
 .nav__logo {
@@ -35,6 +36,12 @@
   color: rgba(255, 255, 255, 0.75);
   text-decoration: none;
   text-transform: uppercase;
+}
+
+@media (min-width: 768px) {
+  .nav {
+    display: flex;
+  }
 }
 
 @media (min-width: 1280px) {

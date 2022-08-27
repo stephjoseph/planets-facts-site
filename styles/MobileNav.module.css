@@ -78,3 +78,9 @@
   height: 1.25rem;
   border-radius: 9999px;
 }
+
+@media (min-width: 768px) {
+  .nav {
+    display: none;
+  }
+}
