@@ -201,7 +201,8 @@ const Main = ({ planet, color, tabSelected, setTabSelected }) => {
           </div>
         </div>
         <div className={styles.planet__tabs}>
-          <div
+          <button
+            type='button'
             ref={(element) => {
               tabsRef.current[0] = element;
             }}
@@ -224,8 +225,9 @@ const Main = ({ planet, color, tabSelected, setTabSelected }) => {
           >
             <div>01</div>
             <div className={styles.planet__tabTitle}>Overview</div>
-          </div>
-          <div
+          </button>
+          <button
+            type='button'
             ref={(element) => {
               tabsRef.current[1] = element;
             }}
@@ -250,8 +252,9 @@ const Main = ({ planet, color, tabSelected, setTabSelected }) => {
           >
             <div>02</div>
             <div className={styles.planet__tabTitle}>Internal Structure</div>
-          </div>
-          <div
+          </button>
+          <button
+            type='button'
             ref={(element) => {
               tabsRef.current[2] = element;
             }}
@@ -274,7 +277,7 @@ const Main = ({ planet, color, tabSelected, setTabSelected }) => {
           >
             <div>03</div>
             <div className={styles.planet__tabTitle}>Surface Geology</div>
-          </div>
+          </button>
         </div>
       </div>
       <div ref={triggerRef} className={styles.planet__details}>
