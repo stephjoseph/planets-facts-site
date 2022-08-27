@@ -59,5 +59,6 @@
   .nav__links a:hover {
     padding-top: 1.813rem;
     border-top: 4px solid transparent;
+    color: var(--white);
   }
 }
