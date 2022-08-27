@@ -1,7 +1,8 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import Image from 'next/image';
 import styles from '../../styles/Planet.module.css';
 import Link from 'next/link';
+import { gsap } from 'gsap';
 
 const Main = ({ planet, color, tabSelected, setTabSelected }) => {
   const [width, setWidth] = useState(0);
@@ -11,6 +12,13 @@ const Main = ({ planet, color, tabSelected, setTabSelected }) => {
     1: false,
     2: false,
   });
+
+  const imgRef = useRef(null);
+  const geoImgRef = useRef(null);
+  const planetNameRef = useRef(null);
+  const contentRef = useRef(null);
+  const tabsRef = useRef([]);
+  const detailsRef = useRef([]);
 
   const updateSize = () => {
     setWidth(window.innerWidth);
@@ -35,10 +43,70 @@ const Main = ({ planet, color, tabSelected, setTabSelected }) => {
     window.onresize = updateSize;
   }, []);
 
+  useEffect(() => {
+    gsap.fromTo(
+      imgRef.current,
+      { opacity: 0 },
+      { opacity: 1, duration: 1.3, ease: 'easeIn' }
+    );
+
+    gsap.fromTo(
+      geoImgRef.current,
+      { opacity: 0 },
+      { opacity: 1, duration: 1.3, ease: 'easeIn' }
+    );
+
+    gsap.fromTo(
+      contentRef.current,
+      { opacity: 0 },
+      { opacity: 1, duration: 1.3, ease: 'easeIn' }
+    );
+  }, [planet, tabSelected]);
+
+  useEffect(() => {
+    gsap.fromTo(
+      planetNameRef.current,
+      { opacity: 0, y: 50 },
+      { opacity: 1, y: 0, duration: 1.3, ease: 'easeIn' }
+    );
+
+    gsap.fromTo(
+      tabsRef.current,
+      {
+        x: 300,
+      },
+      {
+        x: 0,
+        duration: 0.6,
+        ease: 'easeIn',
+        stagger: {
+          each: 0.3,
+        },
+      }
+    );
+
+    gsap.fromTo(
+      detailsRef.current,
+      {
+        y: 50,
+        opacity: 0,
+      },
+      {
+        y: 0,
+        opacity: 1,
+        duration: 0.6,
+        ease: 'easeIn',
+        stagger: {
+          each: 0.3,
+        },
+      }
+    );
+  }, [planet]);
+
   return (
     <main className={styles.main}>
       <div className={styles.planet__container}>
-        <div className={styles.planet__img}>
+        <div className={styles.planet__img} ref={imgRef}>
           <Image
             width={
               width < 768
@@ -65,7 +133,7 @@ const Main = ({ planet, color, tabSelected, setTabSelected }) => {
           />
         </div>
         {tabSelected === 'Surface' && (
-          <div className={styles.planet__geologyImg}>
+          <div className={styles.planet__geologyImg} ref={geoImgRef}>
             <Image
               width={
                 width < 768
@@ -89,8 +157,8 @@ const Main = ({ planet, color, tabSelected, setTabSelected }) => {
         <div className={styles.planet}>
           <div className={styles.planet__summary}>
             <div className={styles.planet__content}>
-              <h1>{planet.name}</h1>
-              <p>
+              <h1 ref={planetNameRef}>{planet.name}</h1>
+              <p ref={contentRef}>
                 {tabSelected === 'Overview'
                   ? planet.overview.content
                   : tabSelected === 'Structure'
@@ -126,6 +194,9 @@ const Main = ({ planet, color, tabSelected, setTabSelected }) => {
         </div>
         <div className={styles.planet__tabs}>
           <div
+            ref={(element) => {
+              tabsRef.current[0] = element;
+            }}
             style={{
               backgroundColor:
                 tabSelected === 'Overview'
@@ -147,6 +218,9 @@ const Main = ({ planet, color, tabSelected, setTabSelected }) => {
             <div className={styles.planet__tabTitle}>Overview</div>
           </div>
           <div
+            ref={(element) => {
+              tabsRef.current[1] = element;
+            }}
             style={{
               backgroundColor:
                 tabSelected === 'Structure'
@@ -170,6 +244,9 @@ const Main = ({ planet, color, tabSelected, setTabSelected }) => {
             <div className={styles.planet__tabTitle}>Internal Structure</div>
           </div>
           <div
+            ref={(element) => {
+              tabsRef.current[2] = element;
+            }}
             style={{
               backgroundColor:
                 tabSelected === 'Surface'
@@ -193,19 +270,39 @@ const Main = ({ planet, color, tabSelected, setTabSelected }) => {
         </div>
       </div>
       <div className={styles.planet__details}>
-        <div className={styles.planet__detail}>
+        <div
+          ref={(element) => {
+            detailsRef.current[0] = element;
+          }}
+          className={styles.planet__detail}
+        >
           <div>Rotation Time</div>
           <div className={styles.planet__detailValue}>{planet.rotation}</div>
         </div>
-        <div className={styles.planet__detail}>
+        <div
+          ref={(element) => {
+            detailsRef.current[1] = element;
+          }}
+          className={styles.planet__detail}
+        >
           <div>Revolution Time</div>
           <div className={styles.planet__detailValue}>{planet.revolution}</div>
         </div>
-        <div className={styles.planet__detail}>
+        <div
+          ref={(element) => {
+            detailsRef.current[2] = element;
+          }}
+          className={styles.planet__detail}
+        >
           <div>Radius</div>
           <div className={styles.planet__detailValue}>{planet.radius}</div>
         </div>
-        <div className={styles.planet__detail}>
+        <div
+          ref={(element) => {
+            detailsRef.current[3] = element;
+          }}
+          className={styles.planet__detail}
+        >
           <div>Average Temp</div>
           <div className={styles.planet__detailValue}>{planet.temperature}</div>
         </div>

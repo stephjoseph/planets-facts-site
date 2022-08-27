@@ -110,6 +110,7 @@
   line-height: 1.375rem;
   letter-spacing: normal;
   color: var(--white);
+  height: 132px;
 }
 
 .planet__source {
@@ -298,6 +299,7 @@
   }
 
   .planet__content p {
+    height: 150px;
     font-size: 1.125rem;
     line-height: 1.563rem;
   }
