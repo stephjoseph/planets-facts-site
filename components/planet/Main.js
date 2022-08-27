@@ -43,65 +43,65 @@ const Main = ({ planet, color, tabSelected, setTabSelected }) => {
     window.onresize = updateSize;
   }, []);
 
-  useEffect(() => {
-    gsap.fromTo(
-      imgRef.current,
-      { opacity: 0 },
-      { opacity: 1, duration: 1.3, ease: 'easeIn' }
-    );
+  // useEffect(() => {
+  //   gsap.fromTo(
+  //     imgRef.current,
+  //     { opacity: 0 },
+  //     { opacity: 1, duration: 1.3, ease: 'easeIn' }
+  //   );
 
-    gsap.fromTo(
-      geoImgRef.current,
-      { opacity: 0 },
-      { opacity: 1, duration: 1.3, ease: 'easeIn' }
-    );
+  //   gsap.fromTo(
+  //     geoImgRef.current,
+  //     { opacity: 0 },
+  //     { opacity: 1, duration: 1.3, ease: 'easeIn' }
+  //   );
 
-    gsap.fromTo(
-      contentRef.current,
-      { opacity: 0 },
-      { opacity: 1, duration: 1.3, ease: 'easeIn' }
-    );
-  }, [planet, tabSelected]);
+  //   gsap.fromTo(
+  //     contentRef.current,
+  //     { opacity: 0 },
+  //     { opacity: 1, duration: 1.3, ease: 'easeIn' }
+  //   );
+  // }, [planet, tabSelected]);
 
-  useEffect(() => {
-    gsap.fromTo(
-      planetNameRef.current,
-      { opacity: 0, y: 50 },
-      { opacity: 1, y: 0, duration: 1.3, ease: 'easeIn' }
-    );
+  // useEffect(() => {
+  //   gsap.fromTo(
+  //     planetNameRef.current,
+  //     { opacity: 0, y: 50 },
+  //     { opacity: 1, y: 0, duration: 1.3, ease: 'easeIn' }
+  //   );
 
-    gsap.fromTo(
-      tabsRef.current,
-      {
-        x: 300,
-      },
-      {
-        x: 0,
-        duration: 0.6,
-        ease: 'easeIn',
-        stagger: {
-          each: 0.3,
-        },
-      }
-    );
+  //   gsap.fromTo(
+  //     tabsRef.current,
+  //     {
+  //       x: 300,
+  //     },
+  //     {
+  //       x: 0,
+  //       duration: 0.6,
+  //       ease: 'easeIn',
+  //       stagger: {
+  //         each: 0.3,
+  //       },
+  //     }
+  //   );
 
-    gsap.fromTo(
-      detailsRef.current,
-      {
-        y: 50,
-        opacity: 0,
-      },
-      {
-        y: 0,
-        opacity: 1,
-        duration: 0.6,
-        ease: 'easeIn',
-        stagger: {
-          each: 0.3,
-        },
-      }
-    );
-  }, [planet]);
+  //   gsap.fromTo(
+  //     detailsRef.current,
+  //     {
+  //       y: 50,
+  //       opacity: 0,
+  //     },
+  //     {
+  //       y: 0,
+  //       opacity: 1,
+  //       duration: 0.6,
+  //       ease: 'easeIn',
+  //       stagger: {
+  //         each: 0.3,
+  //       },
+  //     }
+  //   );
+  // }, [planet]);
 
   return (
     <main className={styles.main}>
